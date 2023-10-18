@@ -1,0 +1,8 @@
+.custom input {
+    border-radius: 5px;
+    background: #FFF;
+    width: 75%;
+}
+.custom label{
+    display: block;
+}

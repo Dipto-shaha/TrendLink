@@ -5,12 +5,27 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Context from './component/Context';
+import Navber from './component/Navber';
+import Home from './component/Home';
+import AddProduct from './component/privateRoute/AddProduct';
+import Context from './Context';
+import ErrorPage from './ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <Navber></Navber>,
+    errorElement:<ErrorPage></ErrorPage>,
+    children:[
+      {
+        path:'/',
+        element:<Home></Home> 
+      },
+      {
+          path:'/addproduct', 
+          element:<AddProduct></AddProduct>
+      }
+    ]
   },
 ]);
 
