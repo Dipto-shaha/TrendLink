@@ -22,11 +22,10 @@ const AddProduct = () => {
       },
       body: JSON.stringify(product),
     })
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-      });
-
+    .then((res) => res.json())
+    .then((result) => {
+      console.log(result);
+    });
   }
   return (
     <>

@@ -10,6 +10,9 @@ import Home from './component/Home';
 import AddProduct from './component/privateRoute/AddProduct';
 import Context from './Context';
 import ErrorPage from './ErrorPage';
+import BrandDetails from './component/BrandDetails';
+import ProductDetails from './component/privateRoute/ProductDetails';
+import UpdateProduct from './component/privateRoute/UpdateProduct';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +27,18 @@ const router = createBrowserRouter([
       {
           path:'/addproduct', 
           element:<AddProduct></AddProduct>
+      },
+      {
+        path:'/branddetails/:brand',
+        element:<BrandDetails></BrandDetails>
+      },
+      {
+        path:'/productDetails/:_id',
+        element:<ProductDetails></ProductDetails>
+      },
+      {
+        path:'/updateProduct/:_id',
+        element:<UpdateProduct></UpdateProduct>
       }
     ]
   },
