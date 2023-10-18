@@ -13,6 +13,7 @@ import ErrorPage from './ErrorPage';
 import BrandDetails from './component/BrandDetails';
 import ProductDetails from './component/privateRoute/ProductDetails';
 import UpdateProduct from './component/privateRoute/UpdateProduct';
+import MyCart from './component/privateRoute/MyCart';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path:'/updateProduct/:_id',
         element:<UpdateProduct></UpdateProduct>
+      },
+      {
+        path:'/mycart',
+        element:<MyCart></MyCart>
       }
     ]
   },

@@ -28,13 +28,13 @@ const Navber = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <NavLink>Home</NavLink>
+              <NavLink to='/'>Home</NavLink>
             </li>
             <li>
               <NavLink to='/addproduct'>Add Product</NavLink>
             </li>
             <li>
-              <NavLink> My Cart</NavLink>
+              <NavLink to='/mycart'> My Cart</NavLink>
             </li>
           </ul>
         </div>
@@ -44,13 +44,13 @@ const Navber = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
             <li>
-              <NavLink>Home</NavLink> 
+              <NavLink to='/'>Home</NavLink> 
             </li>
             <li>
               <NavLink to='/addproduct'>Add Product</NavLink>
             </li>
             <li>
-              <NavLink> My Cart</NavLink>
+              <NavLink to='/mycart'> My Cart</NavLink>
             </li>
         </ul>
       </div>
