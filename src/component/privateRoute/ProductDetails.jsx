@@ -7,10 +7,13 @@ const ProductDetails = () => {
     const {user}=useContext(AuthContest);
     const {_id}=useParams();
     const [info ,setInfo] =useState({});
+    const [loading,setLoading]=useState(true);
     useEffect(()=>{
         fetch(`http://localhost:5000/productDetails/${_id}`)
         .then(res => res.json())
-        .then(data => setInfo(data));
+        .then(data =>{ setInfo(data),setLoading(false)}
+
+        );
     },[]);
     const addproduct = ()=>{
         const cartInfo={productId:info._id ,user_id:user.email};
@@ -29,15 +32,27 @@ const ProductDetails = () => {
         })
     }
     return (
+        
         <div>
-            <img className=" w-60 h-60 rounded-lg" src={info.image}></img>
-            <p>{info.name}</p>
-            <p>{info.brand}</p>
-            <p>{info.description}</p>
-            <p>{info.price}</p>
-            <p>{info.rating}</p>
-            <p>{info.type}</p>
-            <button onClick={addproduct}> Add to Cart</button>
+            {
+            loading ?   <div className="flex h-screen justify-center items-center"><span className="loading loading-bars loading-md"></span>
+                        <span className=" text-7xl loading loading-bars loading-lg "></span>
+                        </div>
+                    :
+            <div className="mx-5 lg:mx-20 my-10">
+                <p className="text-xl lg:text-3xl  font-semibold text-center my-5 ">{info.brand} Fashion Faves: Elevate Your Wardrobe with TrendLink&apos;s Latest Picks</p>
+                <img className="mx-auto w-1/2 lg:h-[350px] rounded-lg" src={info.image}></img>
+                <p className="text-2xl font-semibold text-center my-5 ">{info.name}</p>
+                <ul className="ml-10 lg:ml-[350px] text-xl font-medium">
+                    <li>Brand: {info.brand}</li>
+                    <li>Price: {info.price}</li>
+                    <li>Rating: {info.rating}</li>
+                    <li>Type: {info.type}</li>
+                    <li>Product Details: {info.description}</li>
+                </ul>
+                <div className="flex  justify-center mt-5 items-center" ><button className= " px-5 py-2  bg-[#515474] rounded-lg text-[#FFF] roounded" onClick={addproduct}> Add to Cart</button></div>
+            </div>
+            }
         </div>
     );
 };

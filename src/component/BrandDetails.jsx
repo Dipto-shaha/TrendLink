@@ -4,17 +4,23 @@ import { Link, useParams } from "react-router-dom";
 const BrandDetails = () => {
     const { brand }= useParams();
     const [info,setInfo]=useState([]);
+    const [loading,setLoading]=useState(true);
     console.log("I am Here",brand);
     useEffect(()=>{
         fetch(`http://localhost:5000/branddetails/${brand}`)
         .then((res) => res.json())
         .then((data) => {
             console.log(data);
+            setLoading(false);
             setInfo(data)
         });
     },[]);
     return (
         <div>
+            {
+              loading &&   <div className="flex h-screen justify-center items-center"><span className="loading loading-bars loading-md"></span>
+                <span className=" text-7xl loading loading-bars loading-lg "></span></div>
+            }
             {info.length >0 ? 
                 <div className="mt-5">
                     <p>{info[0].brand}</p>

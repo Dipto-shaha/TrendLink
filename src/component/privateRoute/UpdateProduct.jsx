@@ -86,7 +86,7 @@ const UpdateProduct = () => {
             ></textarea>
           </div>
           <div className="text-center">
-            <button className="px-10 py-2 font-bold text-[#FFF] bg-[#2b3440] rounded-xl">Add button</button>
+            <button className="px-10 py-2 font-bold text-[#FFF] bg-[#2b3440] rounded-xl">Update Product</button>
           </div>
         </form>
       </div>
