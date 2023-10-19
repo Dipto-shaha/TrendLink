@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import { AuthContest } from "../../Context";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const ProductDetails = () => {
+    const {user}=useContext(AuthContest);
     const {_id}=useParams();
     const [info ,setInfo] =useState({});
     useEffect(()=>{
@@ -10,7 +13,7 @@ const ProductDetails = () => {
         .then(data => setInfo(data));
     },[]);
     const addproduct = ()=>{
-        const cartInfo={productId:info._id ,user_id:'6726372'};
+        const cartInfo={productId:info._id ,user_id:user.email};
         console.log(cartInfo);
         fetch('http://localhost:5000/saveCartProduct',{
             method:'POST',
@@ -20,7 +23,10 @@ const ProductDetails = () => {
             body: JSON.stringify(cartInfo),
         })
         .then(res=> res.json())
-        .then(serverInfo => console.log(serverInfo))
+        .then(serverInfo => {
+            console.log(serverInfo)
+            toast.success("Product added to cart successfully")
+        })
     }
     return (
         <div>

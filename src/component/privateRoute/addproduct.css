@@ -2,7 +2,10 @@
     border-radius: 5px;
     background: #FFF;
     width: 75%;
+    height: 40px;
 }
 .custom label{
+    margin-top: 5px;
+    margin-bottom: 5px;
     display: block;
 }

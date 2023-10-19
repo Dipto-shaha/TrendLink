@@ -14,6 +14,9 @@ import BrandDetails from './component/BrandDetails';
 import ProductDetails from './component/privateRoute/ProductDetails';
 import UpdateProduct from './component/privateRoute/UpdateProduct';
 import MyCart from './component/privateRoute/MyCart';
+import Login from './Login';
+import Signin from './Signin';
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -27,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
           path:'/addproduct', 
-          element:<AddProduct></AddProduct>
+          element:<PrivateRoute><AddProduct></AddProduct></PrivateRoute>
       },
       {
         path:'/branddetails/:brand',
@@ -35,15 +38,23 @@ const router = createBrowserRouter([
       },
       {
         path:'/productDetails/:_id',
-        element:<ProductDetails></ProductDetails>
+        element:<PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>
       },
       {
         path:'/updateProduct/:_id',
-        element:<UpdateProduct></UpdateProduct>
+        element:<PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>
       },
       {
         path:'/mycart',
-        element:<MyCart></MyCart>
+        element:<PrivateRoute><MyCart></MyCart></PrivateRoute>
+      },
+      {
+        path:'/login',
+        element:<Login></Login>
+      },
+      {
+        path:'/signin',
+        element:<Signin></Signin>
       }
     ]
   },

@@ -1,4 +1,6 @@
 import "./addproduct.css";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const AddProduct = () => {
 
   const handleAddProduct = e =>{
@@ -25,25 +27,39 @@ const AddProduct = () => {
     .then((res) => res.json())
     .then((result) => {
       console.log(result);
+      toast.success('Product Added Successfully')
     });
   }
   return (
     <>
-      <div className="bg-[#5154745F] px-20">
-        <p className="text-center text-3xl font-bold">Add a New Product</p>
+      <div className="bg-[#5154745F] lg:mx-20 mx-10 py-10 my-10 px-20">
+        <p className="text-center text-3xl font-bold mb-10">Add a New Product</p>
         <form onSubmit={handleAddProduct}>
           <div className="grid grid-cols-1 md:grid-cols-2 custom ">
+            <div>
+              <label>Name</label>
+              <input type="text" name="name" required placeholder="Product Name"/>
+            </div>
             <div>
               <label>Image</label>
               <input type="text" name="image" placeholder="Add your product image" />
             </div>
             <div>
-              <label>Name</label>
-              <input type="text" name="name" required />
+              <label>Type </label>
+              <input name='type' type="text" placeholder="Your product Type" />
             </div>
             <div>
-              <label>Brand Name</label>
-              <select className="" name="brand" required>
+              <label>Price</label>
+              <input name='price' type="text"  placeholder="Product Price"  required/>
+            </div>
+
+            <div>
+              <label >Rating</label>
+              <input  placeholder="Product Rating" name='rating' type="text" />
+            </div>
+            <div className="mt-5 flex  items-center">
+              <p>Brand Name</p>
+              <select className="ml-5 rounded-lg" name="brand" required>
                 <option value="" disabled selected>
                   Select a Brand
                 </option>
@@ -55,20 +71,8 @@ const AddProduct = () => {
                 <option value="Levi's">Levi&apos;s</option>
               </select>
             </div>
-            <div>
-              <label>Type </label>
-              <input name='type' type="text"  />
-            </div>
-            <div>
-              <label>Price</label>
-              <input name='price' type="text"  required/>
-            </div>
-
-            <div>
-              <label >Rating</label>
-              <input name='rating' type="text" />
-            </div>
           </div>
+          
           <div className="w-full custom">
             <label>Short description</label>
             <textarea
@@ -77,8 +81,8 @@ const AddProduct = () => {
               className="textarea textarea-bordered textarea-md w-full max-w-xs"
             ></textarea>
           </div>
-          <div className="">
-            <button>Add button</button>
+          <div className="text-center">
+            <button className="px-10 py-2 font-bold text-[#FFF] bg-[#2b3440] rounded-xl">Add Product</button>
           </div>
         </form>
       </div>

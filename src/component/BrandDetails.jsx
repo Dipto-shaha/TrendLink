@@ -6,12 +6,11 @@ const BrandDetails = () => {
     const [info,setInfo]=useState([]);
     console.log("I am Here",brand);
     useEffect(()=>{
-        fetch(`http://localhost:5000/branddetails/:${brand}`)
+        fetch(`http://localhost:5000/branddetails/${brand}`)
         .then((res) => res.json())
         .then((data) => {
             console.log(data);
-            const newData= data.filter((item)=> item.brand==brand);
-            setInfo(newData)
+            setInfo(data)
         });
     },[]);
     return (
