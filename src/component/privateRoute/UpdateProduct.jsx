@@ -7,7 +7,7 @@ const UpdateProduct = () => {
   const [info, setInfo] = useState({});
   useEffect(() => {
     fetch(
-      `https://trend-link-server-ausl12bvl-dipto-shahas-projects.vercel.app/productDetails/${_id}`
+      `https://trend-link-server-63j55mn4p-dipto-shahas-projects.vercel.app/productDetails/${_id}`
     )
       .then((res) => res.json())
       .then((data) => setInfo(data));
@@ -26,7 +26,7 @@ const UpdateProduct = () => {
     const product = { name, image, brand, type, price, rating, description };
     console.log(product);
     fetch(
-      `https://trend-link-server-ausl12bvl-dipto-shahas-projects.vercel.app/updateProduct/${info._id}`,
+      `https://trend-link-server.vercel.app/updateProduct/${info._id}`,
       {
         method: "PUT",
         headers: {

@@ -8,14 +8,14 @@ const MyCart = () => {
   const [info, setInfo] = useState([]);
   useEffect(() => {
     fetch(
-      `https://trend-link-server-ausl12bvl-dipto-shahas-projects.vercel.app/saveCartProduct/${user.email}`
+      `https://trend-link-server.vercel.app/saveCartProduct/${user.email}`
     )
       .then((res) => res.json())
       .then((cartItems) => {
         console.log(cartItems);
         const promises = cartItems.map((item) =>
           fetch(
-            `https://trend-link-server-ausl12bvl-dipto-shahas-projects.vercel.app/productDetails/${item.productId}`
+            `https://trend-link-server.vercel.app/productDetails/${item.productId}`
           ).then((res) => res.json())
         );
         Promise.all(promises).then((products) => {
@@ -36,7 +36,7 @@ const MyCart = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://trend-link-server-ausl12bvl-dipto-shahas-projects.vercel.app/cartDelete/${_id}`,
+          `https://trend-link-server.vercel.app/cartDelete/${_id}`,
           {
             method: "DELETE",
           }

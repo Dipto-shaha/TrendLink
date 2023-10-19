@@ -10,7 +10,7 @@ const ProductDetails = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch(
-      `https://trend-link-server-ausl12bvl-dipto-shahas-projects.vercel.app/productDetails/${_id}`
+      `https://trend-link-server.vercel.app/productDetails/${_id}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -21,7 +21,7 @@ const ProductDetails = () => {
     const cartInfo = { productId: info._id, user_id: user.email };
     console.log(cartInfo);
     fetch(
-      "https://trend-link-server-ausl12bvl-dipto-shahas-projects.vercel.app/saveCartProduct",
+      "https://trend-link-server.vercel.app/saveCartProduct",
       {
         method: "POST",
         headers: {

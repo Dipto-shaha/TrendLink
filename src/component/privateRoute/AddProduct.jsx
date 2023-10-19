@@ -17,7 +17,7 @@ const AddProduct = () => {
     const product = { name, image, brand, type, price, rating, description };
     console.log(product);
     fetch(
-      "https://trend-link-server-ausl12bvl-dipto-shahas-projects.vercel.app/addproduct",
+      "https://trend-link-server.vercel.app/addproduct",
       {
         method: "POST",
         headers: {
