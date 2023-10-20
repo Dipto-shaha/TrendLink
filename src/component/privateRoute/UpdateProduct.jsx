@@ -6,9 +6,7 @@ const UpdateProduct = () => {
   const { _id } = useParams();
   const [info, setInfo] = useState({});
   useEffect(() => {
-    fetch(
-      `https://trend-link-server-63j55mn4p-dipto-shahas-projects.vercel.app/productDetails/${_id}`
-    )
+    fetch(`https://trend-link-server.vercel.app/productDetails/${_id}`)
       .then((res) => res.json())
       .then((data) => setInfo(data));
   }, []);
@@ -25,16 +23,13 @@ const UpdateProduct = () => {
     const description = form.get("description");
     const product = { name, image, brand, type, price, rating, description };
     console.log(product);
-    fetch(
-      `https://trend-link-server.vercel.app/updateProduct/${info._id}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(product),
-      }
-    )
+    fetch(`https://trend-link-server.vercel.app/updateProduct/${info._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
@@ -42,7 +37,7 @@ const UpdateProduct = () => {
       });
   };
   return (
-    <div className="bg-[#5154745F] lg:mx-20 mx-10 py-10 my-10 px-20">
+    <div className="bg-[#5154745F] lg:mx-20 mx-10 py-10 my-10 px-20 rounded-lg">
       <p className="text-center text-3xl font-bold mb-10">Update Product</p>
       <form onSubmit={handleUpdateProduct}>
         <div className="grid grid-cols-1 md:grid-cols-2 custom ">

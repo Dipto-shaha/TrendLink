@@ -1,33 +1,50 @@
 [
-    {
-      "id": 1,
-      "brand": "Nike",
-      "logo": "https://i.ibb.co/Pmd34Kt/1-c-JUVJJSWPj9-WFIJlvf7d-Kg.jpg"
-    },
-    {
-      "id": 2,
-      "brand": "Adidas",
-      "logo": "https://i.ibb.co/phYMXgg/download.png"
-    },
-    {
-      "id": 3,
-      "brand": "Gucci",
-      "logo": "https://i.ibb.co/tJXDK9g/download.png"
-    },
-    {
-      "id": 4,
-      "brand": "Zara",
-      "logo": "https://i.ibb.co/mXFVtth/download.jpg"
-    },
-    {
-      "id": 5,
-      "brand": "H&M",
-      "logo": "https://i.ibb.co/ncr7WDr/download.jpg"
-    },
-    {
-      "id": 6,
-      "brand": "Levi's",
-      "logo": "https://i.ibb.co/ZMqhXqN/download.png"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "brand": "Nike",
+    "logo": "https://i.ibb.co/Pmd34Kt/1-c-JUVJJSWPj9-WFIJlvf7d-Kg.jpg",
+    "image1":"https://i.ibb.co/SX84StS/889ef520-349a-49da-80d4-8d75f9651feb.webp",
+    "image2":"https://i.ibb.co/ZNhH63V/a5942424-c9b7-4192-9ef1-f7c9815fbfcc.webp",
+    "image3":"https://i.ibb.co/sKdtNHg/0d265602-b5fa-46c1-8eb6-b3e56c7f52b9.webp"
+  },
+  {
+    "id": 2,
+    "brand": "Adidas",
+    "logo": "https://i.ibb.co/phYMXgg/download.png",
+    "image1":"https://i.ibb.co/D8Hyk54/images.jpg",
+    "image2":"https://i.ibb.co/3B1VR0h/images.jpg",
+    "image3":"https://i.ibb.co/dQH5qkp/download.jpg"
+  },
+  {
+    "id": 3,
+    "brand": "Gucci",
+    "logo": "https://i.ibb.co/tJXDK9g/download.png",
+    "image1":"https://i.ibb.co/6BJgzpY/download.jpg",
+    "image2":"https://i.ibb.co/445ztZx/images.jpg",
+    "image3":"https://i.ibb.co/Lh4bLbS/images.jpg"
+  },
+  {
+    "id": 4,
+    "brand": "Zara",
+    "logo": "https://i.ibb.co/mXFVtth/download.jpg",
+    "image1":"https://i.ibb.co/N2wc9rP/download.jpg",
+    "image2":"https://i.ibb.co/ByfrTjw/download.jpg",
+    "image3":"https://i.ibb.co/n3gGDDh/download.jpg"
+  },
+  {
+    "id": 5,
+    "brand": "H&M",
+    "logo": "https://i.ibb.co/ncr7WDr/download.jpg",
+    "image1":"https://i.ibb.co/7ymhB46/download.jpg",
+    "image2":"https://i.ibb.co/KVmSZb8/download.jpg",
+    "image3":"https://i.ibb.co/tqZnfLy/5ef4878f4e10c73b7a212f89-1593083791194.jpg"
+  },
+  {
+    "id": 6,
+    "brand": "Levi's",
+    "logo": "https://i.ibb.co/ZMqhXqN/download.png",
+    "image1":"https://i.ibb.co/nrJ33XF/download.jpg",
+    "image2":"https://i.ibb.co/cQDxLN7/download.jpg",
+    "image3":"https://i.ibb.co/YpnMHRh/download.jpg"
+  }
+]

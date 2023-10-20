@@ -6,6 +6,7 @@ import { AuthContest } from "../../Context";
 const MyCart = () => {
   const { user } = useContext(AuthContest);
   const [info, setInfo] = useState([]);
+  const [loading,setLoading] =useState(true);
   useEffect(() => {
     fetch(
       `https://trend-link-server.vercel.app/saveCartProduct/${user.email}`
@@ -21,6 +22,7 @@ const MyCart = () => {
         Promise.all(promises).then((products) => {
           console.log("Here", products);
           setInfo(products);
+          setLoading(false);
         });
       });
   }, []);
@@ -57,9 +59,17 @@ const MyCart = () => {
       }
     });
   };
+  if(loading) return (
+    <div className="flex h-screen justify-center items-center">
+          <span className="loading loading-bars loading-md"></span>
+          <span className=" text-7xl loading loading-bars loading-lg "></span>
+        </div>
+  );
   return (
     <div className="mx-10 lg:mx-20  my-10">
-      <div className=" grid grid-cols-1 lg:grid-cols-2 lg:gap-10 gap-5">
+        {
+        info.length>0 ?
+        <div className=" grid grid-cols-1 lg:grid-cols-2 lg:gap-10 gap-5">
         {info.map((item) => (
           <div key={item._id} className="flex border-2 rounded-md">
             <div>
@@ -81,7 +91,15 @@ const MyCart = () => {
             </div>
           </div>
         ))}
-      </div>
+        </div>
+        :
+        <div>
+          <div className="mx-auto w-1/3">
+          <img className="w-full" src="https://i.ibb.co/9YQvrM8/no-item-in-the-shopping-cart-add-product-click-to-shop-now-concept-illustration-flat-design-eps10-mo.jpg" alt="" />
+          </div>
+        <p className="text-center text-2xl lg:text-5xl font-semibold">You don&apos; have any product in cart</p>
+        </div>
+        }
     </div>
   );
 };
