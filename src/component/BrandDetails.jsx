@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { AiOutlineDollar } from "react-icons/ai";
+import { Rate } from 'antd';
 
 const BrandDetails = () => {
   const { brand } = useParams();
   const [info, setInfo] = useState([]);
   const [loading, setLoading] = useState(true);
   const [add, setAdd] = useState({});
-  console.log("I am Here", brand);
   useEffect(() => {
     fetch("/brand.json")
       .then((res) => res.json())
@@ -32,56 +33,61 @@ const BrandDetails = () => {
       </div>
     );
   return (
-    <div>
-        <div className="mt-5">
-          <p>{brand}</p>
-          <div className="carousel w-1/2 h-[350px]">
-            <div id="slide1" className="carousel-item relative w-full">
-              <img src={add.image1} className="w-full" />
-              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href="#slide3" className="btn btn-circle">
-                  ❮
-                </a>
-                <a href="#slide2" className="btn btn-circle">
-                  ❯
-                </a>
-              </div>
-            </div>
-            <div id="slide2" className="carousel-item relative w-full">
-              <img src={add.image2} className="w-full" />
-              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href="#slide1" className="btn btn-circle">
-                  ❮
-                </a>
-                <a href="#slide3" className="btn btn-circle">
-                  ❯
-                </a>
-              </div>
-            </div>
-            <div id="slide3" className="carousel-item relative w-full">
-              <img src={add.image3} className="w-full" />
-              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href="#slide2" className="btn btn-circle">
-                  ❮
-                </a>
-                <a href="#slide1" className="btn btn-circle">
-                  ❯
-                </a>
-              </div>
-            </div>
-          </div>
-          {info.length ? <div className=" grid grid-cols-1 lg:grid-cols-2">
+    <>
+    <div className="my-5 flex flex-col items-center ">
+    <p className="my-5 font-bold text-5xl">{brand}</p>
+    <div className="carousel w-5/6 lg:w-1/2 h-[350px] rounded-2xl border-4  ">
+      <div id="slide1" className="carousel-item relative w-full">
+        <img src={add.image1} className="w-full" />
+        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <a href="#slide3" className="btn btn-circle">
+            ❮
+          </a>
+          <a href="#slide2" className="btn btn-circle">
+            ❯
+          </a>
+        </div>
+      </div>
+      <div id="slide2" className="carousel-item relative w-full">
+        <img src={add.image2} className="w-full" />
+        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <a href="#slide1" className="btn btn-circle">
+            ❮
+          </a>
+          <a href="#slide3" className="btn btn-circle">
+            ❯
+          </a>
+        </div>
+      </div>
+      <div id="slide3" className="carousel-item relative w-full">
+        <img src={add.image3} className="w-full" />
+        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <a href="#slide2" className="btn btn-circle">
+            ❮
+          </a>
+          <a href="#slide1" className="btn btn-circle">
+            ❯
+          </a>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div className="lg:mx-32 mx-10 my-5">
+        {info.length ? <div className=" grid grid-cols-1 lg:grid-cols-2 gap-10">
             {info.map((item) => (
-              <div key={item._id} className="border-2">
-                <img className=" w-60 h-60 rounded-lg" src={item.image}></img>
-                <p>{item.name}</p>
-                <p>{item.brand}</p>
-                <p>{item.price}</p>
-                <p>{item.rating}</p>
-                <p>{item.type}</p>
-                <div className="flex">
-                  <Link to={`/updateProduct/${item._id}`}>Update</Link>
-                  <Link to={`/productDetails/${item._id}`}>Details</Link>
+              <div key={item._id} className="px-5 lg:px-20 flex flex-col border-2 rounded-lg">
+                <img className="mx-auto pt-5  w-60 h-60 rounded-lg" src={item.image}></img>
+                <div className="text-lg px-10">
+                  <p className="text-center font-bold my-5">{item.name}</p>
+                  <p >Brand : {item.brand}</p>
+                  <p className="flex items-center"> Price : {item.price} <AiOutlineDollar className="ml-2 "></AiOutlineDollar></p>
+                  <p>Rating: <Rate disabled allowHalf defaultValue={item.rating} />
+                  </p>
+                  <p>Type: {item.type}</p>
+                </div>
+                <div className="flex justify-between lg:mx-10 my-5 mx-5">
+                  <Link to={`/updateProduct/${item._id}`} className="px-5 py-2 text-[#FFF] font-bold bg-[#515474] rounded-lg ">Update</Link>
+                  <Link to={`/productDetails/${item._id}`} className="px-5 py-2 text-[#FFF] font-bold bg-[#515474] rounded-lg " >Details</Link>
                 </div>
               </div>
             ))}
@@ -102,8 +108,8 @@ const BrandDetails = () => {
           </p>
         </div>
           }
-        </div>
     </div>
+    </>
   );
 };
 

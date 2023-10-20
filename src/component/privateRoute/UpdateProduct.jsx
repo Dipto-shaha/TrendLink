@@ -2,13 +2,20 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Rate } from 'antd';
+
 const UpdateProduct = () => {
   const { _id } = useParams();
   const [info, setInfo] = useState({});
+  const [ratings,setRating] = useState(0);
+
   useEffect(() => {
     fetch(`https://trend-link-server.vercel.app/productDetails/${_id}`)
       .then((res) => res.json())
-      .then((data) => setInfo(data));
+      .then((data) => {setInfo(data)
+      setRating(parseFloat(data.rating));
+      }
+      );
   }, []);
   const handleUpdateProduct = (e) => {
     e.preventDefault();
@@ -19,7 +26,7 @@ const UpdateProduct = () => {
     const brand = form.get("brand");
     const type = form.get("type");
     const price = form.get("price");
-    const rating = form.get("rating");
+    const rating = ratings;
     const description = form.get("description");
     const product = { name, image, brand, type, price, rating, description };
     console.log(product);
@@ -65,20 +72,18 @@ const UpdateProduct = () => {
 
           <div>
             <label>Rating</label>
-            <input defaultValue={info.rating} name="rating" type="text" />
+            <Rate onChange={setRating} allowHalf value={ratings} />
           </div>
           <div className="mt-5 flex  items-center">
             <p>Brand Name</p>
-            <select className="ml-5" name="brand">
-              <option value="" disabled selected>
-                {info.brand}
-              </option>
-              <option value="Nike">Nike</option>
-              <option value="Adidas">Adidas</option>
-              <option value="Gucci">Gucci</option>
-              <option value="Zara">Zara</option>
-              <option value="H&M">H&M</option>
-              <option value="Levi's">Levi&apos;s</option>
+            <select className="ml-5" name="brand" >
+              <option value={info.brand} >{info.brand}</option>
+              { info.brand !="Nike" && <option value="Nike">Nike</option>}
+              { info.brand !="Adidas" && <option value="Adidas">Adidas</option>}
+              { info.brand !="Gucci" && <option value="Gucci">Gucci</option>}
+              { info.brand !="Zara" && <option value="Zara">Zara</option>}
+              { info.brand !="H&M" && <option value="H&M">H&M</option>}
+              { info.brand !="Levi's" && <option value="Levi's">Levi&apos;s</option>}
             </select>
           </div>
         </div>

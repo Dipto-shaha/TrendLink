@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { AuthContest } from "../../Context";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Rate } from 'antd';
+
 const ProductDetails = () => {
   const { user } = useContext(AuthContest);
   const { _id } = useParams();
@@ -59,7 +61,7 @@ const ProductDetails = () => {
           <ul className="ml-10 lg:ml-[350px] text-xl font-medium">
             <li>Brand: {info.brand}</li>
             <li>Price: {info.price}</li>
-            <li>Rating: {info.rating}</li>
+            <li>Rating: <Rate disabled allowHalf defaultValue={info.rating} /></li>
             <li>Type: {info.type}</li>
             <li>Product Details: {info.description}</li>
           </ul>

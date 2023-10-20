@@ -1,7 +1,12 @@
 import "./addproduct.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Rate } from 'antd';
+import { useState } from "react";
+
 const AddProduct = () => {
+  const [value, setValue] = useState(0);
+
   const handleAddProduct = (e) => {
     e.preventDefault();
     console.log("Hello");
@@ -12,7 +17,7 @@ const AddProduct = () => {
     const brand = form.get("brand");
     const type = form.get("type");
     const price = form.get("price");
-    const rating = form.get("rating");
+    const rating = value;
     const description = form.get("description");
     const product = { name, image, brand, type, price, rating, description };
     console.log(product);
@@ -73,7 +78,7 @@ const AddProduct = () => {
 
             <div>
               <label>Rating</label>
-              <input placeholder="Product Rating" name="rating" type="text" />
+              <Rate onChange={setValue} allowHalf value={value} />
             </div>
             <div className="mt-5 flex  items-center">
               <p>Brand Name</p>

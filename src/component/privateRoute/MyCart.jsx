@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import Swal from "sweetalert2";
 import { AuthContest } from "../../Context";
+import { Rate } from 'antd';
 
 const MyCart = () => {
   const { user } = useContext(AuthContest);
@@ -66,7 +67,7 @@ const MyCart = () => {
         </div>
   );
   return (
-    <div className="mx-10 lg:mx-20  my-10">
+    <div className="mx-5 lg:mx-20  my-10">
         {
         info.length>0 ?
         <div className=" grid grid-cols-1 lg:grid-cols-2 lg:gap-10 gap-5">
@@ -75,12 +76,13 @@ const MyCart = () => {
             <div>
               <img className=" w-60 h-60 rounded-lg" src={item.image}></img>
             </div>
-            <div className="ml-3 lg:ml-10  mt-10">
+            <div className="ml-3 lg:ml-10  mt-10 ">
               <p className="text-xl font-bold">{item.name}</p>
               <p className="font-semibold">{item.brand}</p>
               <p className="">Price: {item.price}</p>
-              <p>Rating:{item.rating}</p>
-              <p>Type:{item.type}</p>
+              <p>Rating: <Rate disabled allowHalf defaultValue={item.rating} /></p>
+
+              <p>Type: {item.type}</p>
               <button
                 className="px-5 py-2 bg-[#ff4d4d] rounded-lg mt-2 flex items-center text-[#FFF]"
                 onClick={() => handleDelete(item._id)}
