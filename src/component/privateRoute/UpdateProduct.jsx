@@ -44,7 +44,7 @@ const UpdateProduct = () => {
       });
   };
   return (
-    <div className="bg-[#5154745F] lg:mx-20 mx-10 py-10 my-10 px-20 rounded-lg">
+    <div className="bg-[#5154745F] lg:mx-20 mx-10 py-10 my-10 lg:px-20 px-10 rounded-lg">
       <p className="text-center text-3xl font-bold mb-10">Update Product</p>
       <form onSubmit={handleUpdateProduct}>
         <div className="grid grid-cols-1 md:grid-cols-2 custom ">

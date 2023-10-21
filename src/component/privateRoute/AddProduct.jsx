@@ -39,7 +39,7 @@ const AddProduct = () => {
   };
   return (
     <>
-      <div className="bg-[#5154745F] lg:mx-20 mx-10 py-10 my-10 px-20 rounded-lg">
+      <div className="bg-[#5154745F] lg:mx-20 mx-10 py-10 my-10 lg:px-20 px-10 rounded-lg">
         <p className="text-center text-3xl font-bold mb-10">
           Add a New Product
         </p>

@@ -70,6 +70,8 @@ const MyCart = () => {
     <div className="mx-5 lg:mx-20  my-10">
         {
         info.length>0 ?
+        <>
+        <div className="text-xl lg:text-3xl font-semibold  text-center my-5">Ready to turn your shopping wish list into a reality? <br /><p className="font-bold mt-5">Place Order</p></div>
         <div className=" grid grid-cols-1 lg:grid-cols-2 lg:gap-10 gap-5">
         {info.map((item) => (
           <div key={item._id} className="flex border-2 rounded-md">
@@ -93,7 +95,7 @@ const MyCart = () => {
             </div>
           </div>
         ))}
-        </div>
+        </div></>
         :
         <div>
           <div className="mx-auto w-1/3">
